@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
 
+import { styles } from './styles';
+import { colors, Texts } from '../../theme';
+
+
 const HomeScreen = ({ route, navigation }) => {
   React.useEffect(() => {
     if(route.params?.post) {
@@ -10,32 +14,42 @@ const HomeScreen = ({ route, navigation }) => {
   }, [route.params?.post]);
 
   return (
-    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        title="View Menu"
-        onPress={() => navigation.navigate('CreatePost')}
-      />
-      <Button
-        title="View Sales"
-        onPress={() => navigation.navigate('Details', {
-          userId: 86,
-          otherParam: 'anything you want here',
-        })}
-      />
-      <Button
-        title="Option"
-        onPress={() => navigation.navigate('Details', {
-          userId: 86,
-          otherParam: 'anything you want here',
-        })}
-      />
-      <Button
-        title="Check Out"
-        onPress={() => navigation.navigate('Details', {
-          userId: 86,
-          otherParam: 'anything you want here',
-        })}
-      />
+    <View style={styles.container}>
+      <View style={styles.directoryButton}>
+        <Button
+          title="View Menu"
+          color="white"
+          onPress={() => navigation.navigate('Menu')}
+        />
+      </View>
+      <View style={styles.directoryButton}>
+        <Button
+          title="Edit Menu"
+          color="white"
+          onPress={() => navigation.navigate('EditMenu')}
+        />
+      </View>
+      <View style={styles.directoryButton}>
+        <Button
+          title="View Sales"
+          color="white"
+          onPress={() => navigation.navigate('Sales')}
+        />
+      </View>
+      <View style={styles.directoryButton}>
+        <Button
+          title="Settings"
+          color="white"
+          onPress={() => navigation.navigate('Settings')}
+        />
+      </View>
+      <View style={styles.directoryButton}>
+        <Button
+          title="Check Out"
+          color="white"
+          onPress={() => navigation.navigate('CheckOut')}
+        />
+      </View>
     </View>
   );
 }

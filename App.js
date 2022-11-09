@@ -9,6 +9,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LogInScreen from './screens/LogIn'
 import HomeScreen from './screens/Home';
+import MenuScreen from './screens/Menu';
+import EditMenuScreen from './screens/EditMenu';
 
 import { colors, Texts } from './theme';
 
@@ -30,6 +32,8 @@ export default function App() {
       >
         <Stack.Screen name="LogIn" component={LogInScreen} options={{ title: 'Log In' }}/>
         <Stack.Screen name="Home" component ={HomeScreen}/>
+        <Stack.Screen name="Menu" component ={MenuScreen}/>
+        <Stack.Screen name="EditMenu" component ={EditMenuScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
