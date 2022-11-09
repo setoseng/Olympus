@@ -1,9 +1,9 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-import { Button, Text, View, StyleSheet, TextInput } from 'react-native';
+import { Button, Text, View, TextInput } from 'react-native';
 
-import styles from './styles.js'
+import { styles } from './styles.js'
 
 const LogInScreen = ({ route, navigation }) => {
   const [text, onChangeText] = React.useState("");
@@ -22,11 +22,14 @@ const LogInScreen = ({ route, navigation }) => {
         onChange={onChangeText}
         value={text}
       />
-      <Button
-        title="LogIn"
-        style={styles.loginButton}
-        onPress={() => {navigation.push("Home")}}
-      />
+      <View style={styles.loginButton}>
+        <Button
+          title="Log In"
+          color="white"
+          style={styles.loginButtonText}
+          onPress={() => {navigation.push("Home")}}
+        />
+      </View>
     </View>
   )
 }
