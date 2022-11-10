@@ -10,8 +10,12 @@ import { colors, Texts } from '../../theme';
 const EditMenuScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
-      <BigButton title= "Add Menu Category" buttonColor={colors.primary}/>
-      <BigButton title= "Remove Menu Category" buttonColor={colors.danger}/>
+      <Button
+        title= "Add Menu Type"
+        buttonColor={colors.primary}
+        onPress={() => navigation.navigate("AddMenuType")}
+      />
+      <BigButton title= "Remove Menu Type" buttonColor={colors.danger}/>
       <BigButton title= "Add Menu Item" buttonColor={colors.primary}/>
       <BigButton title= "Remove Menu Item" buttonColor={colors.danger}/>
     </View>
