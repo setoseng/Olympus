@@ -3,7 +3,6 @@ import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -13,7 +12,6 @@ import MenuScreen from './screens/Menu';
 import EditMenuScreen from './screens/EditMenu';
 
 import AddMenuType from './screens/EditMenu/Screens/AddMenuType';
-
 
 import { colors, Texts } from './theme';
 
@@ -40,7 +38,7 @@ export default function App() {
           <Stack.Screen name="EditMenu" component ={EditMenuScreen}/>
         </Stack.Group>
         <Stack.Group>
-          <Stack.Screen name="Add Menu Type" component ={AddMenuType}/>
+          <Stack.Screen name="AddMenuType" component ={AddMenuType}/>
           {/* <Stack.Screen name="Remove Menu Type" component ={RemoveMenuType}/>
           <Stack.Screen name="Add Menu Item" component ={RemoveMenuType}/>
           <Stack.Screen name="Remove Menu Item" component ={RemoveMenuType}/> */}
