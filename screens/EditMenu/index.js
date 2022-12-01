@@ -7,17 +7,27 @@ import { styles } from './styles';
 import { colors, Texts } from '../../theme';
 
 
-const EditMenuScreen = ({ route, navigation }) => {
+const EditMenuScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Button
+      <BigButton
         title="Add Menu Type"
         buttonColor={colors.primary}
         onPress={() => navigation.navigate("AddMenuType")}
       />
-      <BigButton title="Remove Menu Type" buttonColor={colors.danger}/>
-      <BigButton title="Add Menu Item" buttonColor={colors.primary}/>
-      <BigButton title="Remove Menu Item" buttonColor={colors.danger}/>
+      <BigButton
+        title="Remove Menu Type"
+        buttonColor={colors.danger}
+        
+      />
+      <BigButton
+        title="Add Menu Item"
+        buttonColor={colors.primary}
+      />
+      <BigButton
+        title="Remove Menu Item"
+        buttonColor={colors.danger}
+      />
     </View>
   );
 }

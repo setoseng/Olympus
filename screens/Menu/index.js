@@ -3,7 +3,7 @@ import { View, Text, ActivityIndicator, FlatList, StyleSheet } from 'react-nativ
 
 import { colors, Texts } from '../../theme';
 
-import { types, actionCreators, reducer, initialState } from '../../data.js'
+import { actionCreators, reducer, initialState } from '../../data.js'
 
 
 const MenuScreen = () => {
@@ -14,17 +14,18 @@ const MenuScreen = () => {
       dispatch(actionCreators.loading())
       try {
         const response = await fetch(
-          'https://jsonplaceholder.typicode.com/posts'
+          'https://bobachimp.com/getMenuType'
         )
-        const menu = await response.json()
-        dispatch(actionCreators.success())
+        const menuType = await response.json()
+        dispatch(actionCreators.success(menuType))
       } catch (error) {
         dispatch(actionCreators.failure())
+        console.log(error);
       }
     }
     fetchPost()
   }, [])
-  const { menu, loading, error } = state
+  const { menuType, loading, error } = state
   if(loading) {
     return (
       <View style={styles.center}>
@@ -42,8 +43,8 @@ const MenuScreen = () => {
   return(
     <FlatList
       style={styles.container}
-      keyExtractor={(menu) => menu.id}
-      data={menu}
+      keyExtractor={(item) => item.id}
+      data={menuType}
       renderItem={({ item: { id, name, description }, index }) => (
         <View key={id} style={styles.menu}>
           <Text style={styles.title}>
