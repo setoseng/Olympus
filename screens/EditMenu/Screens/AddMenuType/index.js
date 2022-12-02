@@ -1,45 +1,56 @@
-import * as React from 'react'
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import react, { useState } from 'react'
+import { View, Text, TextInput, StyleSheet, Button  } from 'react-native'
+
+
 
 const AddMenuType = ({ route, navigation }) => {
+  const [name, onChangeName] = useState('')
+  const [description, onChangeDescription] = useState('')
+
   return(
     <View style={styles.container}>
-      <Text>Enter the information required for the menu type</Text>
       <Text>Menu Type Name</Text>
       <TextInput
+        style={styles.input}
+        value={name}
         placeholder="Menu Type Name"
+        onChange={onChangeName}
+      />
+      <Text>Menu Type Description</Text>
+      <TextInput
+        style={styles.input}
+        value={name}
+        placeholder="Menu Type Name"
+        onChange={onChangeName}
+      />
+      <Button
+        style={styles.createButton}
+        title={'Create Menu Type'}
+        onPress={()=> console.log('shit was pressed')}
       />
     </View>
   )
 }
 
-export default AddMenuType
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-  },
-  menu: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'white',
-    paddingVertical: 20,
-    paddingRight: 20,
-    marginLeft: 20,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  description: {
-    marginTop: 10,
-    fontSize: 14,
-    color: '#F8F8F8',
-  },
-  center: {
-    flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
-})
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  createButton : {
+    height: 50,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10
+  },
+});
+
+export default AddMenuType
